@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rotating box</title>
+    <style>
+      html {
+        font-size: 120%;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        position: relative;
+      }
+      .container {
+        perspective: 800px;
+      }
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 10% auto 0 auto;
+        color: #1b4965;
+        font-size: 1.7rem;
+        text-align: center;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: ani 7s linear infinite;
+      }
+      @keyframes ani {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(360deg);
+        }
+      }
+      .pos-ab {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+      }
+      .front {
+        background: #bee9e8;
+        transform: translateZ(150px);
+      }
+      .left {
+        background-color: #5fa8d3;
+        transform: rotateY(-90deg) translateZ(150px);
+      }
+      .back {
+        background-color: #cae9ff;
+        transform: rotateY(180deg) translateZ(150px);
+      }
+      .right {
+        background-color: #62b6cb;
+        transform: rotateY(90deg) translateZ(150px);
+      }
+
+      .tz-60 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: larger;
+        font-weight: 900;
+
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateZ(60px) translate(-50%, -50%);
+
+        padding: 0 20px;
+        border-radius: 15px;
+        border: 1px solid rgba(90, 156, 78, 0.459);
+        background-color: #a2d2ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="pos-ab front"><span class="tz-60">Front</span></div>
+        <div class="pos-ab back"><span class="tz-60">Back</span></div>
+        <div class="pos-ab right"><span class="tz-60">Right</span></div>
+        <div class="pos-ab left"><span class="tz-60">Left</span></div>
+      </div>
+    </div>
+  </body>
+</html>
